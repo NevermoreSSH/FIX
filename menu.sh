@@ -15,7 +15,7 @@ MB='\e[35;1m'
 CB='\e[35;1m'
 WB='\e[37;1m'
 #Domain & IPVPS
-domain=$(cat /root/domain)
+domain=$(cat /etc/xray/domain)
 IPVPS=$(curl -s ipinfo.io/ip)
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
