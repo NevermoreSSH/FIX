@@ -62,7 +62,7 @@ umo4="vless://${uuid}@${MYIP}:80?type=ws&encryption=none&security=none&host=main
 digi1="vless://${uuid}@api.useinsider.com:80?type=ws&encryption=none&security=none&host=${domain}&path=/vless/#DIGIBOOSTER_${user}"
 digi2="vless://${uuid}@162.159.134.61:80?type=ws&encryption=none&security=none&host=${domain}&path=/vless/#DIGIBOOSTER2_${user}"
 yes1="vless://${uuid}@cdn.who.int:80?type=ws&encryption=none&security=none&host=cdn.who.int.${domain}&path=/vless/#yes4g_${user}"
-yes2="vless://${uuid}@cdn.who.int:80?type=ws&encryption=none&security=none&host=cdn.who.int&path=wss/${domain}/vless/#yesFB_${user}"
+yes2="vless://${uuid}@cdn.who.int:80?type=ws&encryption=none&security=none&host=cdn.who.int&path=wss://${domain}/vless/#yesFB_${user}"
 maxisip="vless://${uuid}@www.upnm.edu.my.${domain}:8443?type=ws&encryption=none&security=tls&host=${domain}&path=/vless/&allowInsecure=1&sni=mycampus.upnm.edu.my#MAXIS_IPHUNT_${user}"
 maxistv1="vless://${uuid}@umc.viu.com.${domain}:80?type=ws&encryption=none&security=none&host=umc.viu.com.${domain}&path=/vless/#maxisTV_UMC_${user}"
 maxistv2="vless://${uuid}@4gold.viu.com.${domain}:80?type=ws&encryption=none&security=none&host=4gold.viu.com.${domain}&path=/vless/#maxisTV_GOLD_${user}"
