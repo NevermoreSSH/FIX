@@ -18,6 +18,12 @@ WB='\e[37;1m'
 domain=$(cat /etc/xray/domain)
 sldomain=$(cat /root/nsdomain)
 IPVPS=$(curl -s ipinfo.io/ip)
+# TOTAL ACC CREATE SSH/XRAYS
+sshovpn="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+vmess=$(grep -c -E "^### " "/etc/xray/config.json")
+vless=$(grep -c -E "^#### " "/etc/xray/config.json")
+tr=$(grep -c -E "^#&# " "/etc/xray/config.json")
+trgo=$(grep -c -E "^### " "/etc/trojan-go/akun.conf")
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 # RAM Info
@@ -47,18 +53,18 @@ echo -e "  ${RB}♦️${NC} ${YB}Monthly Data Usage  : $tmon ${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "                     ${WB} ♦️ VPS Menu ♦️ ${NC}             "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "$yy 1$y.  SSH & OpenVPN MENU  $wh"
+echo -e "$yy 1$y.  SSH & OpenVPN MENU [$sshovpn Users]  $wh"
 echo -e "$yy 2$y.  L2TP MENU$wh"
 echo -e "$yy 3$y.  PPTP MENU$wh"
 echo -e "$yy 4$y.  SSTP MENU$wh"
 echo -e "$yy 5$y.  WIREGUARD MENU$wh"
 echo -e "$yy 6$y.  SHADOWSOCKS MENU$wh"
 echo -e "$yy 7$y.  SHADOWSOCKSR MENU$wh"
-echo -e "$yy 8$y.  XRAY VMESS MENU$wh"
-echo -e "$yy 9$y.  XRAY VLESS MENU$wh"
-echo -e "$yy 10$y. XRAY TROJAN MENU$wh"
-echo -e "$yy 11$y. TROJAN GO MENU$wh"
-echo -e "$yy 12$y. XRAY GRPC MENU$wh"
+echo -e "$yy 8$y.  XRAY VMESS MENU [$vmess Users] $wh"
+echo -e "$yy 9$y.  XRAY VLESS MENU [$vless Users] $wh"
+echo -e "$yy 10$y. XRAY TROJAN MENU [$tr Users] $wh"
+echo -e "$yy 11$y. TROJAN GO MENU [$trgo Users] $wh"
+echo -e "$yy 12$y. INFO ALL PORT$wh"
 echo -e "$yy 13$y. XRAY VERSION$wh"
 echo -e "$yy 14$y. CHECK IP PORT$wh"
 echo -e "$yy 15$y. CHECK SERVICE VPN$wh"
@@ -69,10 +75,10 @@ echo -e "$yy 19$y. CHECK CPU & RAM$wh"
 echo -e "$yy 20$y. CHECK BANDWIDTH$wh"
 echo -e "$yy 21$y. DNS CHANGER$wh"
 echo -e "$yy 22$y. NETFLIX CHECKER$wh"
-echo -e "$yy 23$y. SET AUTOREBOOT$wh"
+echo -e "$yy 23$y. DELETE EXPIRED USERS$wh"
 echo -e "$yy 24$y. EXIT$wh"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-read -p "Select From Options [ 1 - 22 ] : " menu
+read -p "Select From Options [ 1 - 24 ] : " menu
 case $menu in
 1)
 clear
@@ -120,7 +126,7 @@ trgomenu
 ;;
 12)
 clear
-grpcmenu
+info
 ;;
 13)
 clear
@@ -164,7 +170,7 @@ netf
 ;;
 23)
 clear
-autoreboot
+delexp && xp && restart
 ;;
 19)
 clear
