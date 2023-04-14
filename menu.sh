@@ -19,7 +19,7 @@ domain=$(cat /etc/xray/domain)
 sldomain=$(cat /root/nsdomain)
 IPVPS=$(curl -s ipinfo.io/ip)
 # TOTAL ACC CREATE SSH/XRAYS
-sshovpn="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 vmess=$(grep -c -E "^### " "/etc/xray/config.json")
 vless=$(grep -c -E "^#### " "/etc/xray/config.json")
 tr=$(grep -c -E "^#&# " "/etc/xray/config.json")
@@ -54,8 +54,8 @@ echo -e "  ${RB}♦️${NC} ${YB}Yesterday Usage     : $tyest ${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Monthly Data Usage  : $tmon ${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "                     ${WB} ♦️ VPS Menu ♦️ ${NC}             "
-echo -e "      SSH       VMESS       VLESS       TROJAN      TROJANGO          "
-echo -e "      $sshovpn       $vmess       $vless       $tr      $trgo         "
+echo -e "   SSH     VMESS     VLESS    TROJAN     TROJANGO          "
+echo -e "  $ssh     $vmess     $vless    $tr         $trgo         "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "$yy 1$y.  SSH & OpenVPN MENU [$sshovpn Users]  $wh"
 echo -e "$yy 2$y.  L2TP MENU$wh"
