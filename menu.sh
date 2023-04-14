@@ -51,8 +51,8 @@ echo -e "${BB}——————————————————————
 echo -e "  ${RB}♦️${NC} ${YB}Daily Data Usage    : $ttoday ${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Monthly Data Usage  : $tmon ${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "    SSH     VMESS     VLESS     TROJAN     TROJANGO          "
-echo -e "     $ssh        $vmess         $vless         $tr           $trgo         "
+echo -e "   ${YB} SSH     VMESS     VLESS     TROJAN     TROJANGO          "
+echo -e "${y}     $ssh        $vmess         $vless         $tr           $trgo         "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "$yy 1$y.  SSH & OpenVPN MENU  $wh"
 echo -e "$yy 2$y.  L2TP MENU$wh"
@@ -79,6 +79,7 @@ echo -e "$yy 22$y. NETFLIX CHECKER$wh"
 echo -e "$yy 23$y. DELETE EXPIRED USERS$wh"
 echo -e "$yy 24$y. EXIT$wh"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
+echo -e "${YB}"
 read -p "Select From Options [ 1 - 24 ] : " menu
 case $menu in
 1)
