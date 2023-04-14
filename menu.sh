@@ -31,6 +31,7 @@ tram=$(free -m | awk 'NR==2 {print $2}')
 uram=$(free -m | awk 'NR==2 {print $3}')
 # Total BANDWIDTH
 ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
+tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
 tmon="$(vnstat -i eth0 -m | grep "$(date +"%b '%y")" | awk '{print $9" "substr ($10, 1, 1)}')"
 echo ""
 echo -e "$y                        MAIN MENU $wh"
@@ -49,9 +50,12 @@ echo -e "${BB}——————————————————————
 echo -e "                  ${WB} ♦️ ️Total Bandwidth ♦️ ${NC}            "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Daily Data Usage    : $ttoday ${NC}"
+echo -e "  ${RB}♦️${NC} ${YB}Yesterday Usage     : $tyest ${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Monthly Data Usage  : $tmon ${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "                     ${WB} ♦️ VPS Menu ♦️ ${NC}             "
+echo -e "      SSH       VMESS       VLESS       TROJAN      TROJANGO          "
+echo -e "      $sshovpn       $vmess       $vless       $tr      $trgo         "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "$yy 1$y.  SSH & OpenVPN MENU [$sshovpn Users]  $wh"
 echo -e "$yy 2$y.  L2TP MENU$wh"
